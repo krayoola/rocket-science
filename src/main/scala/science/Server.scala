@@ -7,13 +7,18 @@ import fs2.Stream
 import org.http4s.implicits._
 import org.http4s.server.blaze.BlazeServerBuilder
 import org.http4s.server.middleware.Logger
+import science.dao.ItemDaoImpl
+import science.service.IdServiceImpl
 
 import scala.concurrent.ExecutionContext.global
 
 object Server extends IOApp {
 
   private def server[F[_]: ConcurrentEffect](implicit T: Timer[F]): Stream[F, Nothing] = {
-    val itemEndpoint     = ItemEndpoint[F]
+    val idService = new IdServiceImpl[F]
+    val itemDao = new ItemDaoImpl[F]
+
+    val itemEndpoint     = ItemEndpoint[F](idService, itemDao)
     val purchaseEndpoint = PurchaseEndpoint[F]
 
     val routes = (
