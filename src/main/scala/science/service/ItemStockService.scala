@@ -15,7 +15,6 @@ class ItemStockImpl[F[_]: Sync](idService: IdService[F], itemDao: ItemDao[F]) {
 
   def insert(item: Item): F[Item]= for {
     uuid <- idService.uuid
-
     // temporary fix to ease integration.
     // ATM it is considered as business logic :p
     finalItem = item.id.fold(

@@ -18,4 +18,6 @@ object Dependencies {
     "io.circe" %% "circe-generic",
     "io.circe" %% "circe-parser"
   ).map(_ % Version.CirceVersion)
+
+  val logback =    Seq("ch.qos.logback"  %  "logback-classic"     % "1.2.3")
 }

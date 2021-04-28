@@ -1,7 +1,8 @@
 # rocket-science
 
 ## Item routes
-POST
+
+POST: `http://localhost:8080/item/`
 ```json
 {
     "name": "Milk",
@@ -10,10 +11,34 @@ POST
 }
 ```
 
+Create an item
+
 GET`http://localhost:8080/items`
 
-retrieve all values inside the map
+Retrieve all values inside the map
 
 GET `http://localhost:8080/item/:id`
 
-retrieve a value by key
+Retrieve a value by key
+
+PUT `http://localhost:8080/item/:id`
+```json
+{
+"name": "Milk",
+"description": "best milk ever",
+"price": 55
+}
+```
+
+Update an item
+
+## Purchase routes
+
+POST: `http://localhost:8080/purchase`
+```json
+{
+  "ids": ["839d4c4d-ed63-4dfe-bab7-4b75b2627101","8a921f16-5202-4394-a6fc-6fac5733eeea"]
+}
+```
+
+Purchase items

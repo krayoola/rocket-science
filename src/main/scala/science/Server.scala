@@ -19,7 +19,7 @@ object Server extends IOApp {
     val itemDao = new ItemDaoImpl[F]
 
     val itemEndpoint     = ItemEndpoint[F](idService, itemDao)
-    val purchaseEndpoint = PurchaseEndpoint[F]
+    val purchaseEndpoint = PurchaseEndpoint[F](itemDao)
 
     val routes = (
       itemEndpoint.endpoint <+>
