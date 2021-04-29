@@ -42,3 +42,14 @@ POST: `http://localhost:8080/purchase`
 ```
 
 Purchase items
+
+## Dockerization
+
+to build an local docker image `sbt clean docker:publishLocal`
+
+### Docker command
+
+to run the docker container
+`docker run -p 8080:8080 <docker image id/docker name>`
+
+eg. `docker run -p 8080:8080 24e0cfa1e5f7`

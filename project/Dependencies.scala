@@ -2,10 +2,10 @@ import sbt._
 
 object Dependencies {
   object Version {
-    val Http4s = "0.21.16"
-    val ScalaVersion = "2.13.4"
-    val CirceVersion = "0.12.3"
-
+    val Http4s: String = "0.21.16"
+    val ScalaVersion: String = "2.13.4"
+    val CirceVersion: String = "0.12.3"
+    val logBackVersion: String = "1.2.3"
   }
 
   val http4s: Seq[ModuleID] = Seq(
@@ -19,5 +19,6 @@ object Dependencies {
     "io.circe" %% "circe-parser"
   ).map(_ % Version.CirceVersion)
 
-  val logback =    Seq("ch.qos.logback"  %  "logback-classic"     % "1.2.3")
+  val logback =    Seq("ch.qos.logback"  %  "logback-classic" % Version.logBackVersion)
+
 }

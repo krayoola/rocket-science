@@ -31,7 +31,7 @@ object Server extends IOApp {
     // TODO: Configurable ports and host
     for {
       exitCode <- BlazeServerBuilder[F](global)
-        .bindHttp(8080, "localhost")
+        .bindHttp(8080, "0.0.0.0")
         .withHttpApp(finalHttpApp)
         .serve
     } yield exitCode

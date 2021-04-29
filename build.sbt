@@ -1,6 +1,8 @@
 import Dependencies._
 
 lazy val root = (project in file("."))
+  .enablePlugins(JavaAppPackaging)
+  .enablePlugins(DockerPlugin)
   .settings(
     organization := "rocket",
     name := "rocket-science",

@@ -8,7 +8,6 @@ import science.dao.ItemDao
 /**
  * @param idService id generator
  * @param itemDao item dataa access
- * @param sync$F$0 synchronous FFI for suspending side-effectful operations
  * @tparam F effect type
  */
 class ItemStockImpl[F[_]: Sync](idService: IdService[F], itemDao: ItemDao[F]) {
